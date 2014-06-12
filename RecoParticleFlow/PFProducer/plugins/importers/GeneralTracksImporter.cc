@@ -149,6 +149,8 @@ goodPtResolution( const reco::TrackRef& trackref) const {
   const unsigned int LostHits = trackref->numberOfLostHits();
   const double sigmaHad = sqrt(1.20*1.20/P+0.06*0.06) / (1.+LostHits);
 
+  bool isFifthStep = false;
+
   // iteration 1,2,3,4,5 correspond to algo = 1/4,5,6,7,8,9
   unsigned int Algo = 0; 
   switch (trackref->algo()) {
@@ -171,10 +173,15 @@ goodPtResolution( const reco::TrackRef& trackref) const {
     Algo = 4;
     break;
   default:
-    Algo = _useIterTracking ? 5 : 0;
+    Algo = 5;
     break;
   }
-
+  if ( Algo >= 4 ) {
+    isFifthStep = true;
+  }
+  
+  return isFifthStep;
+  
   // Protection against 0 momentum tracks
   if ( P < 0.05 ) return false;
 
