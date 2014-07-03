@@ -1947,6 +1947,12 @@ void PFAlgo::processBlock( const reco::PFBlockRef& blockref,
       case TrackBase::iter6:
 	blowError = factors45_[1];
 	break;
+	
+      case TrackBase::iter9:
+      case TrackBase::iter10:
+	blowError = 1.;
+	break;	
+		
       default:
 	blowError = 1E9;
 	break;
