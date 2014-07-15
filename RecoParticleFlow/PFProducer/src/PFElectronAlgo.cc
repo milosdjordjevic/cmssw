@@ -2684,8 +2684,14 @@ unsigned int PFElectronAlgo::whichTrackAlgo(const reco::TrackRef& trackRef) {
   case TrackBase::iter6:
     Algo = 4;
     break;
-  default:
+  case TrackBase::iter9:
     Algo = 5;
+    break;       
+  case TrackBase::iter10:
+    Algo = 6;
+    break;       
+  default:
+    Algo = 7;
     break;
   }
   return Algo;
