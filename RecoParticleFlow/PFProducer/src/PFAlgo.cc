@@ -1950,8 +1950,7 @@ void PFAlgo::processBlock( const reco::PFBlockRef& blockref,
 	
       case TrackBase::iter9:
       case TrackBase::iter10:
-	blowError = 1.;
-	break;	
+	break;		
 		
       default:
 	blowError = 1E9;
@@ -2411,8 +2410,13 @@ void PFAlgo::processBlock( const reco::PFBlockRef& blockref,
 	  if ( debug_ ) 
 	    std::cout << "\tElement  " << elements[iTrack] 
 		      << " rejected (Dpt = " << -it->first 
-		      << " GeV/c, algo = " << trackref->algo() << ")" << std::endl;
+		      << " GeV/c, algo = " << trackref->algo() << ")" << std::endl;	
 	  break;
+		      
+	case TrackBase::iter9:
+        case TrackBase::iter10:
+	  break;  		      
+		     
 	default:
 	  break;
 	}
