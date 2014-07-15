@@ -489,7 +489,7 @@ PFElecTkProducer::FindPfRef(const reco::PFRecTrackCollection  & PfRTkColl,
 }
 bool PFElecTkProducer::isFifthStep(reco::PFRecTrackRef pfKfTrack) {
 
-  bool isFithStep = false;
+//  bool isFithStep = false;
   
 
   TrackRef kfref = pfKfTrack->trackRef();
@@ -514,15 +514,22 @@ bool PFElecTkProducer::isFifthStep(reco::PFRecTrackRef pfKfTrack) {
   case TrackBase::iter6:
     Algo = 4;
     break;
-  default:
+  case TrackBase::iter9:
     Algo = 5;
+    break;       
+  case TrackBase::iter10:
+    Algo = 6;
+    break;       
+  default:
+    Algo = 7;
     break;
   }
-  if ( Algo >= 4 ) {
-    isFithStep = true;
-  }
-
-  return isFithStep;
+  
+//  if ( Algo >= 4 ) {
+//    isFithStep = true;
+//  }
+  return Algo;
+//  return isFithStep;
 }
 // -- method to apply gsf electron selection to EcalDriven seeds
 bool 
