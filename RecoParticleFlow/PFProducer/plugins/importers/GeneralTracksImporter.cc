@@ -211,7 +211,7 @@ goodPtResolution( const reco::TrackRef& trackref) const {
 	      << ", Algo = " << Algo
 	      << std::std::endl;
     */
-    return false;
+//    return false;
   }
 
   /*
